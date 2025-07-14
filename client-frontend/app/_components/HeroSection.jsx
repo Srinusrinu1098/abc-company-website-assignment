@@ -10,7 +10,9 @@ function HeroSection() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("http://localhost:39491/api/operation");
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/operation`
+        );
         if (res.data.result && res.data.result.length > 0) {
           setHeading(res.data.result[0].sentence);
         }
